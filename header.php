@@ -35,8 +35,10 @@
     <link rel="stylesheet" href="<?php echo MD_PATH; ?>/assets/css/rtl.min.css?v=2.0.0">
 
     <!-- Customizer Css -->
-
     <link rel="stylesheet" href="<?php echo MD_PATH; ?>/assets/vendor/swiperSlider/swiper-bundle.min.css">
+    
+    <!-- Main Css For All Pages -->
+    <link rel="stylesheet" href="<?php echo MD_PATH; ?>/assets/css/main.css">
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

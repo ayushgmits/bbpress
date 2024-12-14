@@ -1,0 +1,11 @@
+
+body{
+    background-color: var(--bs-body-bg) !important;
+}
+
+ul#sidebar-menu {
+    margin-left: 0;
+}  
+.iq-navbar .search-form .input-group .form-control{
+    border-color: inherit;
+}

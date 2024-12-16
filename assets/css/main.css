@@ -6,6 +6,17 @@ body{
 ul#sidebar-menu {
     margin-left: 0;
 }  
-.iq-navbar .search-form .input-group .form-control{
-    border-color: inherit;
+.iq-navbar .search-form .input-group .form-control, .card .form-control{
+    border-color: var(--bs-border-color);
+}
+.card .input-group-text{
+    border-right:0px !important;
+}
+.card .form-control{
+    border-left:0px !important;
+}
+.form-control:focus , .card .form-control:focus{
+    border-color: var(--bs-primary) !important;
+    border-style: solid !important;
+    outline: 0 !important;
 }

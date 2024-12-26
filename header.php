@@ -440,13 +440,13 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end custom-drop-mode2"
                                     aria-labelledby="profile-setting">
-                                    <li><a class="dropdown-item" href="./app/user-profile.html">Profile</a></li>
-                                    <li><a class="dropdown-item" href="./app/user-privacy-setting.html">Privacy
+                                    <li><a class="dropdown-item" href="<?php echo get_permalink( get_page_by_path( 'user-profile' ) ); ?>">Profile</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo get_permalink( get_page_by_path( 'privacy-setting' ) ); ?>">Privacy
                                             Setting</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="./auth/sign-in.html">Logout</a></li>
+                                    <li><a class="dropdown-item" href="<?php echo get_permalink( get_page_by_path( 'logout' ) ); ?>">Logout</a></li>
                                 </ul>
                             </li>
                         </ul>

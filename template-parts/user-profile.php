@@ -3,10 +3,12 @@
 * Template Name: User Profile
 *
 */
-
 get_header();
+wp_enqueue_script('md-user-profile-script', get_stylesheet_directory_uri() . '/assets/js/user-profile.js', array('jquery'), '1.0', true);
 ?>
-
+<div id="loader" class="loader_inner">
+    <div class="loader_inner"></div>
+</div>
 <div class="content-inner container-fluid pb-0" id="page_layout">
     <div class="row">
         <div class="col-lg-12 profile-card">
@@ -19,9 +21,14 @@ get_header();
                                     class="theme-color-default-img img-fluid rounded-pill avatar-140" loading="lazy">
                             </div>
                             <div>
-                                <h5 class="mb-1">Cameron Williamson</h5>
-                                <a href="mailto: cameronwilli1212@gmail.com"
-                                    class="text-body">cameronwilli1212@gmail.com</a>
+                                <div class="input-wrapper">
+                                    <h5 class="mb-1" soap_api_fetch_owner_data>{{FirstName}}</h5>
+                                    <div class="placeholder-animation"></div>
+                                </div>
+                                <div class="input-wrapper">
+                                    <a href="mailto:{{Email}}" class="text-body" soap_api_fetch_owner_data>{{Email}}</a>
+                                    <div class="placeholder-animation"></div>
+                                </div>
                             </div>
                         </div>
                         <div class="flex-shrink-0">
@@ -40,25 +47,37 @@ get_header();
                             <div class="col-md-6 ">
                                 <div class="form-group mb-0">
                                     <label class="form-label">First Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter first name">
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{FirstName}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter first name" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-md-0">
                                 <div class="form-group mb-0">
                                     <label class="form-label">Last Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter last name">
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{LastName}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter last name" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <div class="form-group mb-0">
                                     <label class="form-label">E-mail</label>
-                                    <input type="text" class="form-control" placeholder="Enter email address">
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{Email}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter email address" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <div class="form-group mb-0">
                                     <label class="form-label">Phone</label>
-                                    <input type="text" class="form-control" placeholder="Enter phone number">
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{Phone1}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter phone number" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -69,67 +88,100 @@ get_header();
                             <div class="col-md-12">
                                 <div class="form-group mb-0">
                                     <label class="form-label">Owner ID</label>
-                                    <input type="text" class="form-control" placeholder="Enter first name">
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{OwnerNumber}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter first name" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <div class="form-group mb-0">
                                     <label class="form-label">Spouse Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter spouse name">
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{SpouseName}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter spouse name" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <div class="form-group mb-0">
                                     <label class="form-label">Spouse Last Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter spouse last name">
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{SpouseLastName}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter spouse last name" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <div class="form-group mb-0">
                                     <label class="form-label">Phone Number 1</label>
-                                    <input type="text" class="form-control" placeholder="Enter phone number">
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{Phone1}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter phone number" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <div class="form-group mb-0">
                                     <label class="form-label">Phone Number 2</label>
-                                    <input type="text" class="form-control" placeholder="Enter phone number">
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{Phone2}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter phone number" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-12 mt-3">
                                 <div class="form-group mb-0">
                                     <label class="form-label">Fax</label>
-                                    <input type="text" class="form-control" placeholder="Enter fax number">
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{Fax}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter fax number" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-12 mt-3">
                                 <div class="form-group mb-0">
                                     <label class="form-label">Street Address</label>
-                                    <input type="text" class="form-control" placeholder="Enter address">
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{StreetAddress}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter address" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <div class="form-group mb-0">
                                     <label class="form-label">City</label>
-                                    <input type="text" class="form-control" placeholder="Enter city">
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{City}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter city" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <div class="form-group mb-0">
                                     <label class="form-label">Zip Code</label>
-                                    <input type="text" class="form-control" placeholder="Enter code">
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{PostalCode}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter code" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <div class="form-group mb-0">
                                     <label class="form-label">State</label>
-                                    <input type="text" class="form-control" placeholder="Enter state">
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{State}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter state" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <div class="form-group mb-0">
                                     <label class="form-label">Country</label>
-                                    <input type="text" class="form-control" placeholder="Enter country">
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{Country}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter country" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-12 mt-5">
@@ -180,7 +232,6 @@ get_header();
         </div>
     </div>
 </div>
-
 <?php
 get_footer();
 ?>

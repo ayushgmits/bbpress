@@ -3,6 +3,8 @@
 * Template Name: User Profile
 *
 */
+
+get_header();
 ?>
 
 <div class="content-inner container-fluid pb-0" id="page_layout">
@@ -23,7 +25,7 @@
                             </div>
                         </div>
                         <div class="flex-shrink-0">
-                            <a href="../app/edit-profile.html" class="btn btn-primary">Edit Profile</a>
+                            <a href="<?php echo get_permalink( get_page_by_path( 'edit-profile' ) ); ?>" class="btn btn-primary">Edit Profile</a>
                         </div>
                     </div>
                 </div>
@@ -178,3 +180,7 @@
         </div>
     </div>
 </div>
+
+<?php
+get_footer();
+?>

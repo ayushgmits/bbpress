@@ -1,28 +1,10 @@
 <?php
-/**
-* Template Name: User Profile
-*
-*/
 get_header();
-// wp_enqueue_script('md-user-profile-script', get_stylesheet_directory_uri() . '/assets/js/user-profile.js', array('jquery'), '1.0', true);
-$owner_get = apply_filters('owner_get', ['status' => false, 'message' => 'Error']);
-if($owner_get['status']){
-    $owner_data = $owner_get['response']->Owner_GetResult->Owner;
-
-    $FirstName = isset($owner_data->FirstName) ? $owner_data->FirstName : '';
-    $LastName = isset($owner_data->LastName) ? $owner_data->LastName : '';
-    $Email = isset($owner_data->Email) ? $owner_data->Email : '';
-    $Phone1 = isset($owner_data->Phone1) ? $owner_data->Phone1 : '';
-    $Phone2 = isset($owner_data->Phone2) ? $owner_data->Phone2 : '';
-    $Fax = isset($owner_data->Fax) ? $owner_data->Fax : '';
-    $StreetAddress = isset($owner_data->StreetAddress) ? $owner_data->StreetAddress : '';
-    $City = isset($owner_data->City) ? $owner_data->City : '';
-    $PostalCode = isset($owner_data->PostalCode) ? $owner_data->PostalCode : '';
-    $State = isset($owner_data->State) ? $owner_data->State : '';
-    $Country = isset($owner_data->Country) ? $owner_data->Country : '';
-
-}
+wp_enqueue_script('md-user-profile-script', get_stylesheet_directory_uri() . '/assets/js/user-profile.js', array('jquery'), '1.0', true);
 ?>
+<div id="loader" class="loader_inner">
+    <div class="loader_inner"></div>
+</div>
 <div class="content-inner container-fluid pb-0" id="page_layout">
     <div class="row">
         <div class="col-lg-12 profile-card">
@@ -35,8 +17,14 @@ if($owner_get['status']){
                                     class="theme-color-default-img img-fluid rounded-pill avatar-140" loading="lazy">
                             </div>
                             <div>
-                                <h5 class="mb-1" ><?php if(isset($FirstName)) echo $FirstName; ?></h5>
-                                <a href="mailto:<?php if(isset($Email)) echo $Email; ?>" class="text-body" ><?php if(isset($Email)) echo $Email; ?></a>
+                                <div class="input-wrapper">
+                                    <h5 class="mb-1" soap_api_fetch_owner_data>{{FirstName}}</h5>
+                                    <div class="placeholder-animation"></div>
+                                </div>
+                                <div class="input-wrapper">
+                                    <a href="mailto:{{Email}}" class="text-body" soap_api_fetch_owner_data>{{Email}}</a>
+                                    <div class="placeholder-animation"></div>
+                                </div>
                             </div>
                         </div>
                         <div class="flex-shrink-0">
@@ -55,25 +43,37 @@ if($owner_get['status']){
                             <div class="col-md-6 ">
                                 <div class="form-group mb-0">
                                     <label class="form-label">First Name</label>
-                                    <input type="text" value="<?php if(isset($FirstName)) echo $FirstName; ?>"  class="form-control" placeholder="Enter first name" disabled>
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{FirstName}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter first name" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-md-0">
                                 <div class="form-group mb-0">
                                     <label class="form-label">Last Name</label>
-                                    <input type="text" value="<?php if(isset($LastName)) echo $LastName; ?>"  class="form-control" placeholder="Enter last name" disabled>
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{LastName}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter last name" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <div class="form-group mb-0">
                                     <label class="form-label">E-mail</label>
-                                    <input type="text" value="<?php if(isset($Email)) echo $Email; ?>"  class="form-control" placeholder="Enter email address" disabled>
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{Email}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter email address" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <div class="form-group mb-0">
                                     <label class="form-label">Phone</label>
-                                    <input type="text" value="<?php if(isset($Phone1)) echo $Phone1; ?>"  class="form-control" placeholder="Enter phone number" disabled>
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{Phone1}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter phone number" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -84,67 +84,100 @@ if($owner_get['status']){
                             <div class="col-md-12">
                                 <div class="form-group mb-0">
                                     <label class="form-label">Owner ID</label>
-                                    <input type="text" value="<?php if(isset($OwnerNumber)) echo $OwnerNumber; ?>"  class="form-control" placeholder="Enter first name" disabled>
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{OwnerNumber}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter first name" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <div class="form-group mb-0">
                                     <label class="form-label">Spouse Name</label>
-                                    <input type="text" value="<?php if(isset($SpouseName)) echo $SpouseName; ?>"  class="form-control" placeholder="Enter spouse name" disabled>
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{SpouseName}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter spouse name" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <div class="form-group mb-0">
                                     <label class="form-label">Spouse Last Name</label>
-                                    <input type="text" value="<?php if(isset($SpouseLastName)) echo $SpouseLastName; ?>"  class="form-control" placeholder="Enter spouse last name" disabled>
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{SpouseLastName}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter spouse last name" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <div class="form-group mb-0">
                                     <label class="form-label">Phone Number 1</label>
-                                    <input type="text" value="<?php if(isset($Phone1)) echo $Phone1; ?>"  class="form-control" placeholder="Enter phone number" disabled>
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{Phone1}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter phone number" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <div class="form-group mb-0">
                                     <label class="form-label">Phone Number 2</label>
-                                    <input type="text" value="<?php if(isset($Phone2)) echo $Phone2; ?>"  class="form-control" placeholder="Enter phone number" disabled>
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{Phone2}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter phone number" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-12 mt-3">
                                 <div class="form-group mb-0">
                                     <label class="form-label">Fax</label>
-                                    <input type="text" value="<?php if(isset($Fax)) echo $Fax; ?>"  class="form-control" placeholder="Enter fax number" disabled>
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{Fax}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter fax number" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-12 mt-3">
                                 <div class="form-group mb-0">
                                     <label class="form-label">Street Address</label>
-                                    <input type="text" value="<?php if(isset($StreetAddress)) echo $StreetAddress; ?>"  class="form-control" placeholder="Enter address" disabled>
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{StreetAddress}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter address" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <div class="form-group mb-0">
                                     <label class="form-label">City</label>
-                                    <input type="text" value="<?php if(isset($City)) echo $City; ?>"  class="form-control" placeholder="Enter city" disabled>
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{City}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter city" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <div class="form-group mb-0">
                                     <label class="form-label">Zip Code</label>
-                                    <input type="text" value="<?php if(isset($PostalCode)) echo $PostalCode; ?>"  class="form-control" placeholder="Enter code" disabled>
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{PostalCode}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter code" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <div class="form-group mb-0">
                                     <label class="form-label">State</label>
-                                    <input type="text" value="<?php if(isset($State)) echo $State; ?>"  class="form-control" placeholder="Enter state" disabled>
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{State}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter state" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <div class="form-group mb-0">
                                     <label class="form-label">Country</label>
-                                    <input type="text" value="<?php if(isset($Country)) echo $Country; ?>"  class="form-control" placeholder="Enter country" disabled>
+                                    <div class="input-wrapper">
+                                        <input type="text" value="{{Country}}" soap_api_fetch_owner_data class="form-control" placeholder="Enter country" disabled>
+                                        <div class="placeholder-animation"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-12 mt-5">

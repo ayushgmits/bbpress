@@ -1,0 +1,14 @@
+<?php
+/**
+* Template Name: News
+*
+*/
+
+get_header();
+?>
+
+<?php echo the_content() ?>
+
+<?php
+get_footer();
+?>

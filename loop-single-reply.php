@@ -47,8 +47,7 @@ $reply_class = ($replying_to_id != bbp_get_topic_id() && !empty($replying_to_id)
         <div class="flex-grow-1">
            
 
-           
-
+        
             <!-- Reply Actions -->
             <div class="reply-actions text-end mt-2">
                 <?php do_action('bbp_theme_before_reply_admin_links'); ?>

@@ -21,7 +21,7 @@
 	 * @param array $args This function supports these arguments:
 	 *  - id: Optional. Reply id
 	 *  - before: HTML before the links. Defaults to
-	 *             '<span class="bbp-admin-links">'
+	 *             '<span class="bbp-admin-links">'  
 	 *  - after: HTML after the links. Defaults to '</span>'
 	 *  - sep: Separator. Defaults to ' | '
 	 *  - links: Array of the links to display. By default, edit, trash,

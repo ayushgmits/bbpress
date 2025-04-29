@@ -15,7 +15,7 @@ do_action('bbp_template_before_forums_loop'); ?>
 <div class="forum-title">
 	<h1 class="page-title">Forums</h1>
 	<nav class="breadcrum">
-	<a href="' . home_url() . '">Home</a> >
+	<a href="<?php echo home_url(); ?>">Home</a> >
 	<span>Forum</span>
 	</nav>
 </div>

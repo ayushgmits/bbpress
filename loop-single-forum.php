@@ -59,7 +59,7 @@ if (!empty($categories) && !is_wp_error($categories)) {
 
 						$displayed_forums[] = $forum_id; ?>
 
-						<tr id="bbp-forum-<?php echo esc_attr($forum_id); ?>" <?php bbp_forum_class($forum_id); ?> >
+						<tr id="bbp-forum-<?php   esc_attr($forum_id); ?>" <?php bbp_forum_class($forum_id); ?> >
 							<td>
 							<div class="bbp-topic-con">
 								<div class="bbp-topic-icon">

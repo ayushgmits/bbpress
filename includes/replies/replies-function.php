@@ -11,7 +11,7 @@
      */
     function bbp_reply_admin_linkw( $args = array() ) {
         echo bbp_get_reply_admin_linkw( $args );
-    }
+    }	
 
     /**
 	 * Return admin links for reply
